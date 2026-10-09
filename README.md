@@ -5,7 +5,7 @@ Every section is an episode, every project is an Original, and the whole site pl
 
 > A personal portfolio with a fictional streaming-platform look. It is not affiliated with Netflix or any other streaming service and uses none of their logos.
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sahiltyagi1999/sahil-the-series)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sahiltyagi1999/Sahil-Portfolio-SDE)
 
 ## Run it locally
 
@@ -30,7 +30,7 @@ The static site is written to `dist/`.
 ## Deploying to Netlify
 
 `netlify.toml` already sets the build command (`npm run build`), the publish directory (`dist`), Node 20 and an SPA fallback.
-Click **Deploy to Netlify** above, or in the Netlify dashboard choose **Add new site → Import an existing project → GitHub → sahil-the-series**.
+Click **Deploy to Netlify** above, or in the Netlify dashboard choose **Add new site → Import an existing project → GitHub → Sahil-Portfolio-SDE**.
 Every push to `main` then redeploys automatically.
 
 ## Updating the content

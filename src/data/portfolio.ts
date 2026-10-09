@@ -16,7 +16,7 @@ export const profile = {
   role: 'Software Engineer',
   tagline: ['Software Engineer', 'Backend & Full-Stack', 'AI Pipelines'],
   intro:
-    'An M.Tech graduate from IIT Guwahati, now a Software Development Engineer at AiSensy — building revenue pipelines over 50M+ records, Kafka-streamed analytics, Redis-backed microservices and AI pipelines powered by Claude.',
+    'An M.Tech graduate from IIT Guwahati, now a Software Development Engineer at AiSensy — building revenue pipelines over 50M+ records, Kafka-streamed analytics, Redis-backed microservices and AI-driven products.',
   location: 'Gurugram, India',
   email: 'sahiltyagi1999@gmail.com',
   phone: '+91 79854 76796',
@@ -121,7 +121,7 @@ export const projects: Project[] = [
     id: 'featurepulse-ai',
     title: 'FeaturePulse AI',
     year: '2026',
-    genre: 'AI • Claude API • Real-time',
+    genre: 'AI • Real-time • SaaS',
     logline: 'An AI review-intelligence desk that reads app-store reviews, prioritises what matters and streams every step of the analysis live.',
     stack: ['Express.js', 'TypeScript', 'PostgreSQL', 'BullMQ', 'React', 'Claude API', 'Socket.IO'],
     build: [
@@ -131,7 +131,7 @@ export const projects: Project[] = [
     ],
     features: [
       'Track iOS & Android apps',
-      'Claude-powered review analysis',
+      'AI review analysis',
       'Structured JSON prompting',
       'Live 10-step job progress over WebSockets',
       'Review prioritisation engine',
@@ -461,7 +461,6 @@ export const skillCategories: SkillCategory[] = [
     title: 'AI',
     subtitle: 'LLMs in real products',
     skills: [
-      { name: 'Claude API', mono: 'Cl' },
       { name: 'LLMs', mono: 'Lm' },
       { name: 'RAG', mono: 'Rg' },
       { name: 'AI Agents', mono: 'Ag' },
@@ -506,7 +505,6 @@ export const skillEvidence: Record<string, string[]> = {
   'Socket.IO': ['FeaturePulse AI'],
   AWS: ['Edify — 99.9% uptime on EC2'],
   Docker: ['Edify — 40% faster deployments'],
-  'Claude API': ['FeaturePulse AI'],
   LLMs: ['FeaturePulse AI', 'Therapist AI', 'GoKwik AI popups'],
   RAG: ['Therapist AI'],
   'AI Agents': ['Edify Tier-1 automation', "Sahil's AI Agent"],
@@ -692,8 +690,8 @@ export const seasons: Season[] = [
       {
         code: 'S05 E03',
         title: 'The Reader',
-        description: 'FeaturePulse AI — Claude analyses 150+ app reviews in under 3 minutes, with every step streamed live.',
-        tags: ['Claude API', 'BullMQ', 'Socket.IO'],
+        description: 'FeaturePulse AI — an AI pipeline that analyses 150+ app reviews in under 3 minutes, with every step streamed live.',
+        tags: ['AI', 'BullMQ', 'Socket.IO'],
         runtime: 'Apr – May 2026',
         palette: amber,
       },
@@ -754,7 +752,7 @@ export const introSlides: IntroSlide[] = [
     kicker: 'Skills',
     title: 'Backend to browser.',
     lines: ['TypeScript, Java, Go, Python, C++', 'Node.js · Spring Boot · Kafka · Redis · PostgreSQL · AWS'],
-    chips: ['TypeScript', 'Node.js', 'Kafka', 'Redis', 'AWS', 'Claude API'],
+    chips: ['TypeScript', 'Node.js', 'Kafka', 'Redis', 'AWS', 'PostgreSQL'],
   },
   {
     kicker: 'Experience',
@@ -764,7 +762,7 @@ export const introSlides: IntroSlide[] = [
   {
     kicker: 'Projects',
     title: `${projects.length} Originals`,
-    lines: ['FeaturePulse AI — Claude-powered review triage', 'Revive — 6 microservices over gRPC & Kafka', 'Therapist AI — RAG chatbot, 50+ users'],
+    lines: ['FeaturePulse AI — AI review triage, 150+ reviews in 3 min', 'Revive — 6 microservices over gRPC & Kafka', 'Therapist AI — RAG chatbot, 50+ users'],
   },
   {
     kicker: 'Achievements',
