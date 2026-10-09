@@ -1,60 +1,16 @@
-// Builds optimized portrait assets from the original photo in the project root.
-// mypic.png = high-resolution portrait shot on a pure black background.
-// The background is removed with a flood fill from the image edges (so dark hair inside
-// the silhouette is kept), then the mask is feathered and applied to the photo.
+// Builds optimized portrait assets from the photo in the project root.
+// portrait.png = background-removed portrait (transparent PNG, cropped head-to-waist).
+// To swap the photo: remove its background (e.g. remove.bg), crop, save as portrait.png, run `npm run images`.
 import sharp from 'sharp';
 import { mkdirSync } from 'node:fs';
 
 const OUT = 'public/assets';
-const SRC = 'mypic.png';
-const BG_THRESHOLD = 10; // max channel value still treated as background
 mkdirSync(OUT, { recursive: true });
 
-const { data: rgb, info } = await sharp(SRC).removeAlpha().raw().toBuffer({ resolveWithObject: true });
-const { width, height } = info;
-const n = width * height;
+const cutout = await sharp('portrait.png').ensureAlpha().png().toBuffer();
 
-const isDark = (p) => Math.max(rgb[p * 3], rgb[p * 3 + 1], rgb[p * 3 + 2]) <= BG_THRESHOLD;
-const bg = new Uint8Array(n);
-const stack = [];
-const seed = (p) => {
-  if (!bg[p] && isDark(p)) {
-    bg[p] = 1;
-    stack.push(p);
-  }
-};
-for (let x = 0; x < width; x++) {
-  seed(x);
-  seed((height - 1) * width + x);
-}
-for (let y = 0; y < height; y++) {
-  seed(y * width);
-  seed(y * width + width - 1);
-}
-while (stack.length) {
-  const p = stack.pop();
-  const x = p % width;
-  if (x > 0) seed(p - 1);
-  if (x < width - 1) seed(p + 1);
-  if (p >= width) seed(p - width);
-  if (p < n - width) seed(p + width);
-}
-
-const mask = Buffer.alloc(n);
-for (let i = 0; i < n; i++) mask[i] = bg[i] ? 0 : 255;
-const alpha = await sharp(mask, { raw: { width, height, channels: 1 } }).blur(1.4).extractChannel(0).raw().toBuffer();
-
-const rgba = Buffer.alloc(n * 4);
-for (let i = 0; i < n; i++) {
-  rgba[i * 4] = rgb[i * 3];
-  rgba[i * 4 + 1] = rgb[i * 3 + 1];
-  rgba[i * 4 + 2] = rgb[i * 3 + 2];
-  rgba[i * 4 + 3] = alpha[i];
-}
-const cutout = await sharp(rgba, { raw: { width, height, channels: 4 } }).png().toBuffer();
-
-for (const w of [1100, 720, 420]) {
-  await sharp(cutout).resize({ width: w }).webp({ quality: 86, alphaQuality: 90 }).toFile(`${OUT}/portrait-${w}.webp`);
+for (const w of [720, 420]) {
+  await sharp(cutout).resize({ width: w, withoutEnlargement: true }).webp({ quality: 86, alphaQuality: 90 }).toFile(`${OUT}/portrait-${w}.webp`);
 }
 
 // Social share image (1200x630) on a dark backdrop

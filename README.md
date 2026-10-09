@@ -51,15 +51,15 @@ Every push to `main` then redeploys automatically.
 | Profile order (Recruiter / Developer / Creative) | `viewerProfiles` |
 | Opening studio card text | `profile.originalLabel` |
 
-**Resume:** replace `public/assets/Sahil_Tyagi_Resume.pdf`.
+**Resume:** served from Google Drive (`profile.resume`). Upload a new version to the same Drive file (Manage versions) and the site picks it up — no redeploy needed.
 
-**Photo:** replace `mypic.png` (a portrait on a pure black background), then run:
+**Photo:** replace `portrait.png` (a background-removed, transparent PNG cropped head-to-waist), then run:
 
 ```bash
 npm run images
 ```
 
-This cuts the portrait out of its black background and rebuilds the responsive WebP portraits and the social share image in `public/assets/`.
+This rebuilds the responsive WebP portraits and the social share image in `public/assets/`.
 
 **Project screenshots** live in `public/assets/projects/`.
 

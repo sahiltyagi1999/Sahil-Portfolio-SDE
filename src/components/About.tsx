@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion';
-import { education, experience, profile } from '../data/portfolio';
+import { education, experience, profile, seasons } from '../data/portfolio';
 import { EASE, SectionHeading, Tilt } from './fx';
 
 export default function About() {
   const facts = [
     { k: 'Now', v: `${experience[0].role}, ${experience[0].company}`, s: experience[0].period },
     { k: 'Education', v: `${education[0].degree}, ${education[0].short}`, s: education[0].period },
-    { k: 'Before that', v: `${experience[1].role}, ${experience[1].company}`, s: `${experience[2].period.split(' – ')[0]} – ${experience[1].period.split(' – ')[1]}` },
-    { k: 'Primary stack', v: 'React · Node.js · Redis', s: 'with TypeScript, Java, C++, Python' },
+    { k: 'Before that', v: `${experience[1].role}, ${experience[1].company}`, s: experience[1].period },
+    { k: 'Primary stack', v: 'TypeScript · Node.js · Kafka · Redis', s: 'with Java, Go, Python, C++' },
   ];
 
   return (
@@ -39,7 +39,7 @@ export default function About() {
                 <p className="text-[10px] font-bold tracking-[0.3em] text-crimson-2">STARRING</p>
                 <p className="font-display text-3xl leading-none text-bone">{profile.displayName}</p>
               </div>
-              <span className="rounded border border-white/30 px-1.5 text-[10px] font-bold text-bone">S01–S05</span>
+              <span className="rounded border border-white/30 px-1.5 text-[10px] font-bold text-bone">S01–S{String(seasons.length).padStart(2, '0')}</span>
             </div>
           </div>
         </Tilt>
