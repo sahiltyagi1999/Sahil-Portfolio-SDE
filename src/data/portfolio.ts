@@ -4,6 +4,8 @@
  * Every fact on the site comes from this file. Update it here and the whole site follows.
  */
 
+import { portraitAssets } from './portraitAssets';
+
 export type Palette = { from: string; via: string; to: string; accent: string };
 
 export const profile = {
@@ -31,8 +33,9 @@ export const profile = {
     download: 'https://drive.google.com/uc?export=download&id=1x7T_6W_kfXnpSFHWBNH5nWswLDmW9kT8',
   },
   portrait: {
-    src: '/assets/portrait-720.webp',
-    srcSet: '/assets/portrait-420.webp 420w, /assets/portrait-720.webp 587w',
+    src: portraitAssets.large,
+    small: portraitAssets.small,
+    srcSet: portraitAssets.srcSet,
     alt: 'Portrait of Sahil Tyagi',
   },
   interests: ['System Design', 'Event Streaming', 'AI Pipelines', 'Distributed Systems'],

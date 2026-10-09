@@ -40,7 +40,7 @@ export default function Hero({ onPlay, onResume, profileId }: { onPlay: () => vo
 
   const floating = [
     { text: education[0].short, sub: education[0].degree, pos: 'left-[2%] top-[30%]', depth: 1 },
-    { text: experience[0].company, sub: experience[0].role, pos: 'right-[0%] top-[18%]', depth: -1 },
+    { text: experience[0].company, sub: experience[0].role, pos: 'right-[-6%] top-[3%]', depth: -1 },
     { text: 'Node.js · Kafka · Redis', sub: 'Primary stack', pos: 'right-[4%] bottom-[24%]', depth: 0.6 },
   ];
 

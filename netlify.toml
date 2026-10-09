@@ -11,7 +11,8 @@
   to = "/index.html"
   status = 200
 
+# Only the content-hashed build output is cached forever; files in /assets are revalidated.
 [[headers]]
-  for = "/assets/*"
+  for = "/static/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
